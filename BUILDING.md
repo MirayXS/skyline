@@ -8,13 +8,13 @@
 <details><summary><i>Windows only</i></summary>
 <p>
 
-> In a terminal prompt with administrator privileges, enable git symlinks globally:
+> In a terminal prompt with **administrator** privileges, enable git symlinks globally:
 >
 > ```cmd
 > git config --global core.symlinks true
 > ```
 > 
-> Use this elevated prompt for the next steps
+> Use this elevated prompt for the next steps.
 
 </p>
 </details>
@@ -30,13 +30,12 @@ Open Android Studio
 
 > If you opened Android Studio for the first time, choose the `Standard` install type and complete the setup wizard leaving all settings to their default value.
 > <p><img height="400" src="https://user-images.githubusercontent.com/37104290/162196602-4c142ed0-0c26-4628-8062-7ac9785201cc.png" /></p>
-> If you get any errors on "Intel® HAXM" or "Android Emulator Hypervisor Driver for AMD Processors",
-> you can safely ignore them as they won't be used for skyline
+> If you get any errors on "Intel® HAXM" or "Android Emulator Hypervisor Driver for AMD Processors", you can safely ignore them as they won't be used for Skyline.
 
 </p>
 </details>
 
-Import the project: click on the `Open` icon then in the file picker choose the `skyline` folder you just cloned in the steps above
+Import the project by clicking on the `Open` icon, then in the file picker choose the `skyline` folder you just cloned in the steps above:
 <p>
     <img height="400" src="https://user-images.githubusercontent.com/37104290/162200497-dddfa9f0-00c6-4a32-84c2-1f0ff743a7e2.png" /> 
     <img height="400" src="https://user-images.githubusercontent.com/37104290/162196879-08d9684b-c6a2-4636-9c23-c026cb7d7494.png" />
@@ -46,9 +45,7 @@ Exclude the following folders from indexing:
 - `app/libraries/llvm`
 - `app/libraries/boost`
 
-To exclude a folder do the following:
-
-In the project view navigate to the `app/libraries` folder, left-click on the folder you want to exclude and navigate the menus as following, then click on `Exclude`:
+To exclude a folder, in the project view navigate to the `app/libraries` folder, right-click on the folder you want to exclude and navigate the menus to the `Exclude` option:
 <p>
     <img height="400" src="https://user-images.githubusercontent.com/37104290/162200274-f739e960-82ca-4b12-95eb-caa88a063d61.png" /> 
     <img height="400" src="https://user-images.githubusercontent.com/37104290/162196999-a0376e13-0399-4352-a30d-85d6785151a9.png" />
@@ -74,13 +71,13 @@ externalNativeBuild {
 }
 ```
 
-Open the SDK manager from the top right toolbar:
+Open the SDK manager from the top-right toolbar:
 <p><img height="75" src="https://user-images.githubusercontent.com/37104290/162198029-4f29c50c-75eb-49ce-b05f-bb6413bf844c.png" /></p>
 
-Navigate to the `SDK Tools` tab and enable the `Show Package Details` checkbox in the bottom right corner:
+Navigate to the `SDK Tools` tab and enable the `Show Package Details` checkbox in the bottom-right corner:
 <p><img height="400" src="https://user-images.githubusercontent.com/37104290/162198766-37045d58-352c-48d6-b8de-67c1ddb7c757.png" /></p>
 
-Expand the `NDK (Side by side)` and `CMake` entries, and select the appropriate version from the previous step, then click `OK`.
+Expand the `NDK (Side by side)` and `CMake` entries, select the appropriate version from the previous step, then click `OK`.
 
 Finally, sync the project:
 <p><img height="75" src="https://user-images.githubusercontent.com/37104290/162199780-b5406b5d-480d-4371-9dc4-5cfc6d655746.png" /></p>
@@ -102,14 +99,14 @@ cmake.dir=C\:\\Users\\skyline\\AppData\\Local\\Android\\Sdk\\cmake\\3.18.1
 * `'shader_compiler/*.h' file not found`
 
 You didn't clone the repository with symlinks enabled. Windows requires administrator privileges to create symlinks so it's likely it didn't create them.
-In an elevated terminal prompt navigate to the skyline repo folder and run:
+In an **administrator** terminal prompt navigate to the Skyline root project folder and run:
 ```cmd
 git submodule deinit app/libraries/shader-compiler
 git config core.symlinks true
 git submodule foreach git config core.symlinks true
 git submodule update --init --recursive app/libraries/shader-compiler
 ```
-If you'd like to, you can enable symlinks globally by running (Note: This will only affect new repositories):
+If you'd like to, you can enable symlinks globally by running: (this will only affect new repositories)
 ```cmd
 git config --global core.symlinks true
 ```
